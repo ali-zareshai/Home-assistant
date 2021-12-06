@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/gray_100"
+    tools:context=".activity.MainActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/toolbar">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/devices"
+                    android:textColor="@color/talay_light"
+                    android:textSize="21sp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:padding="5dp"
+                    android:layout_marginRight="10dp"/>
+                <ImageButton
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_alignParentLeft="true"
+                    android:id="@+id/activity_my_ads_back_btn"
+                    android:background="@color/transparent"/>
+            </RelativeLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:id="@+id/device_recycleview"
+            android:clipToPadding="false"
+            android:layout_marginTop="?attr/actionBarSize"
+            android:padding="5dp"
+            android:background="@color/gray_200"
+            android:scrollbars="vertical"
+            tools:listitem="@layout/item_device"
+            android:scrollbarAlwaysDrawVerticalTrack="true"
+            android:layout_height="match_parent"/>
+    </RelativeLayout>
+
+
+
+</FrameLayout>
