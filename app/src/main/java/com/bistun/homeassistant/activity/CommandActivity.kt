@@ -7,7 +7,7 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.bistun.homeassistant.R
 import com.bistun.homeassistant.`interface`.DeviceService
-import com.bistun.homeassistant.model.DeviceCommand
+import com.bistun.homeassistant.model.DeviceCommandModel
 import com.bistun.homeassistant.util.RetrofitInstance
 import com.skydoves.colorpickerview.ColorEnvelope
 import com.skydoves.colorpickerview.ColorPickerDialog
@@ -15,6 +15,7 @@ import com.skydoves.colorpickerview.listeners.ColorEnvelopeListener
 import com.xw.repo.BubbleSeekBar
 import org.json.JSONArray
 import org.json.JSONObject
+
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -24,7 +25,7 @@ import java.lang.Exception
 
 class CommandActivity : AppCompatActivity(),View.OnClickListener {
     private var deviceId:Int=0
-    private var commandList:List<DeviceCommand> = emptyList()
+    private var commandList:List<DeviceCommandModel> = emptyList()
     private lateinit var toggleBtn:Button
     private lateinit var rangBar: BubbleSeekBar
     private lateinit var colorBtn:Button
@@ -36,6 +37,8 @@ class CommandActivity : AppCompatActivity(),View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_command)
+
+
         deviceId =Integer.parseInt(intent.getStringExtra("device_id").toString())
         toggleBtn =findViewById(R.id.toggle_btn)
         rangBar =findViewById(R.id.rang_btn)
@@ -100,10 +103,10 @@ class CommandActivity : AppCompatActivity(),View.OnClickListener {
     private fun getDeviceInfo(deviceId: Int) {
         val retrofit: Retrofit? = RetrofitInstance.getRetrofitInstance()
         val server: DeviceService? = retrofit?.create(DeviceService::class.java)
-        server?.getDeviceInfo(deviceId)?.enqueue(object : Callback<List<DeviceCommand>> {
+        server?.getDeviceInfo(deviceId)?.enqueue(object : Callback<List<DeviceCommandModel>> {
             override fun onResponse(
-                call: Call<List<DeviceCommand>>,
-                response: Response<List<DeviceCommand>>
+                call: Call<List<DeviceCommandModel>>,
+                response: Response<List<DeviceCommandModel>>
             ) {
                 if (response.body()?.size!! > 0) {
                     commandList = response.body()!!
@@ -111,8 +114,8 @@ class CommandActivity : AppCompatActivity(),View.OnClickListener {
 
             }
 
-            override fun onFailure(call: Call<List<DeviceCommand>>, t: Throwable) {
-                Log.e("onFailure:", t.message!!)
+            override fun onFailure(call: Call<List<DeviceCommandModel>>, t: Throwable) {
+                Log.e("onFailure:",t.message!!)
             }
 
 

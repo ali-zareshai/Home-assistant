@@ -2,20 +2,23 @@ package com.bistun.homeassistant.model
 
 import com.google.gson.annotations.SerializedName
 
-class DeviceCommand {
+class DeviceCommandModel {
     @SerializedName("id")
-    val id : Int?=null
+    var id : Int?=null
 
     @SerializedName("device_id")
-    val deviceId : Int?=null
+    var deviceId : Int?=null
+
+    @SerializedName("device_name")
+    var deviceName : String?=null
 
     @SerializedName("command_name")
-    val commadName : String?=null
+    var commadName : String?=null
 
     @SerializedName("input_type")
-    val inputType : String?=null
+    var inputType : String?=null
 
     @SerializedName("command_json")
-    val commandJson : String?=null
+    var commandJson : String?=null
 
 }
