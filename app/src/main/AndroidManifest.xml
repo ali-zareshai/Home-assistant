@@ -12,7 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.CommandActivity"></activity>
+        <activity android:name=".activity.CommandActivity">
+
+        </activity>
         <activity
             android:name=".activity.MainActivity"
             android:theme="@style/FullScreen">

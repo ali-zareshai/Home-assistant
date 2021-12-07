@@ -68,13 +68,13 @@
                         android:layout_height="wrap_content"
                         app:bsb_auto_adjust_section_mark="true"
                         app:bsb_second_track_color="@color/talay_light"
-                        app:bsb_section_count="5"
+                        app:bsb_section_count="20"
                         android:id="@+id/rang_btn"
                         app:bsb_section_text_position="below_section_mark"
                         app:bsb_show_section_mark="true"
-                        app:bsb_show_section_text="true"
-                        app:bsb_show_thumb_text="true"
-                        app:bsb_thumb_text_size="18sp"
+                        app:bsb_show_section_text="false"
+                        app:bsb_show_thumb_text="false"
+                        app:bsb_thumb_text_size="12sp"
                         app:bsb_touch_to_seek="true" />
 
 

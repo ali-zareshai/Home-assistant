@@ -3,4 +3,6 @@
     <string name="devices">دستگاه ها</string>
     <string name="off_on">خاموش / روشن</string>
     <string name="color_select">انتخاب رنگ</string>
+    <string name="confirm">تائید</string>
+    <string name="cancel">لغو</string>
 </resources>
