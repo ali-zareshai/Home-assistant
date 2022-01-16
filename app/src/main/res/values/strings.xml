@@ -5,4 +5,7 @@
     <string name="color_select">انتخاب رنگ</string>
     <string name="confirm">تائید</string>
     <string name="cancel">لغو</string>
+    <string name="title_activity_video">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>

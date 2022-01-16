@@ -6,6 +6,9 @@ class DeviceModel {
     @SerializedName("id")
     val id : Int?=null
 
+    @SerializedName("type_id")
+    val typeId : Int?=null
+
     @SerializedName("ip")
     val ip : String?=null
 

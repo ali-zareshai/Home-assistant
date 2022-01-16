@@ -53,8 +53,15 @@ class MainActivity : AppCompatActivity() {
                     override fun onClick(view: View?, position: Int) {
                         val device: DeviceModel = listDevices[position]
                         Log.e("device:", device.name ?: "--")
-                        val intent = Intent(applicationContext, CommandActivity::class.java)
-                        intent.putExtra("device_id", device.id.toString())
+                        var intent:Intent?=null
+                        if (device.typeId==1){
+                            intent = Intent(applicationContext, CommandActivity::class.java)
+                        }else if (device.typeId==2){
+                            intent = Intent(applicationContext, VideoActivity::class.java)
+                        }
+
+                        intent?.putExtra("device_id", device.id.toString())
+                        intent?.putExtra("endpoint",device.endPoint)
                         Log.e("send:", device.id.toString())
                         startActivity(intent)
                     }
