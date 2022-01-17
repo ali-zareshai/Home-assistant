@@ -12,12 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".activity.SonoffSwitchActivity"></activity>
         <activity
             android:name=".activity.VideoActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_video"
-            android:theme="@style/AppTheme.Fullscreen"></activity>
-        <activity android:name=".activity.CommandActivity"></activity>
+            android:theme="@style/AppTheme.Fullscreen" />
+        <activity android:name=".activity.CommandActivity" />
         <activity
             android:name=".activity.MainActivity"
             android:theme="@style/FullScreen">

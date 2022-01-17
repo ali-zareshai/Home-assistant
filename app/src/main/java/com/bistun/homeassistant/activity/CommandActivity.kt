@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
+import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import com.bistun.homeassistant.R
 import com.bistun.homeassistant.`interface`.DeviceService
@@ -29,7 +30,6 @@ class CommandActivity : AppCompatActivity(),View.OnClickListener {
     private lateinit var toggleBtn:Button
     private lateinit var rangBar: BubbleSeekBar
     private lateinit var colorBtn:Button
-    private var countId:Int=10
     private var rangBrigth:Int=0
     private var redColor:Int = 0
     private var greenColor:Int = 0
@@ -43,6 +43,12 @@ class CommandActivity : AppCompatActivity(),View.OnClickListener {
         toggleBtn =findViewById(R.id.toggle_btn)
         rangBar =findViewById(R.id.rang_btn)
         colorBtn =findViewById(R.id.color_btn)
+        findViewById<ImageButton>(R.id.activity_my_ads_back_btn).setOnClickListener(object :View.OnClickListener{
+            override fun onClick(p0: View?) {
+                finish()
+            }
+
+        });
         rangBar.onProgressChangedListener=object:BubbleSeekBar.OnProgressChangedListener{
             override fun onProgressChanged(
                 bubbleSeekBar: BubbleSeekBar?,
@@ -86,7 +92,7 @@ class CommandActivity : AppCompatActivity(),View.OnClickListener {
                     service.put("rgb_color",JSONArray(intArrayOf(redColor,greenColor,blueColor)))
                     service.put("brightness",rangBrigth)
                     json.put("service_data",service)
-                    json.put("id",countId++)
+                    json.put("id",MainActivity.countId++)
                     Log.e("sned:",json.toString())
                     MainActivity.ws.sendText(json.toString())
 
@@ -156,7 +162,7 @@ class CommandActivity : AppCompatActivity(),View.OnClickListener {
             if(command.inputType.equals("toggle")){
                 try {
                     val json =JSONObject(command.commandJson)
-                    json.put("id",countId++)
+                    json.put("id",MainActivity.countId++)
                     Log.e("send:", json.toString())
                     MainActivity.ws.sendText(json.toString())
                 }catch (e:Exception){

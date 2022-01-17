@@ -8,4 +8,6 @@
     <string name="title_activity_video">FullscreenActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="sonoff_off">قطع</string>
+    <string name="sonoff_on">وصل</string>
 </resources>

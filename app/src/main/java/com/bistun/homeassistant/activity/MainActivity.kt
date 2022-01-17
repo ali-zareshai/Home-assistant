@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         @JvmStatic lateinit var ws: WebSocket
+        @JvmStatic var countId:Int=10
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -58,6 +59,8 @@ class MainActivity : AppCompatActivity() {
                             intent = Intent(applicationContext, CommandActivity::class.java)
                         }else if (device.typeId==2){
                             intent = Intent(applicationContext, VideoActivity::class.java)
+                        }else if(device.typeId==3){
+                            intent = Intent(applicationContext, SonoffSwitchActivity::class.java)
                         }
 
                         intent?.putExtra("device_id", device.id.toString())
